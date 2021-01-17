@@ -11,8 +11,10 @@ Room: @Room.RoomName
 <br />
 Price: @Room.Price
 <br />
-<input type="number" name="name" @bind-value="@Room.Price" @bind-value:event="oninput" />
-
+<input type="number" @bind-value="Room.Price" @bind-value:event="oninput" />
+<br />
+<input type="checkbox" @bind-value="Room.IsActive" checked="@(Room.IsActive?"checked":null)"/> &nbsp; Is Active <br />
+<span>This room is @(Room.IsActive?"Active":"Inactive")</span>
 
 @code{
     Model.BlazorRoom Room = new Model.BlazorRoom()
@@ -20,6 +22,11 @@ Price: @Room.Price
         Id = 1,
         RoomName = "Villa Suite",
         IsActive = true,
-        Price = 499
+        Price = 499,
+        RoomProps = new List<Model.BlazorRoomProp>
+        {
+            new Model.BlazorRoomProp{Id=1, Name="Sq Ft", Value="100" },
+            new Model.BlazorRoomProp{Id=2, Name="Occupancy", Value="3" },
+        }
     };
 }
