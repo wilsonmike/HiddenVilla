@@ -1,6 +1,7 @@
 ﻿@page "/demoHotel"
 @using Model
 
+
 <h3>Our list of hotel rooms</h3>
 <div class="border p-2 mt-2" style="background-color: azure">
     <h2 class="text-info">Room List [Using Component]</h2>
@@ -20,8 +21,7 @@
                     <p>@roomProp.Name = @roomProp.Value</p>
                 }
             }
-            <input type="button" class="btn btn-danger" value="Delete" />
-            <input type="button" class="btn btn-success" value="Edit" />
+            <EditDeleteButton IsAdmin="true" />
         </div>
         }
     </div>
